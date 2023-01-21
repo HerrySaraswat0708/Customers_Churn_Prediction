@@ -1,12 +1,12 @@
 import streamlit as st
-import pickle as pk
+import joblib
 import pandas as pd
 
 train=pd.read_csv('train.csv')
 state_df=pd.read_csv('state_value.csv')
 
 with open('clf2','rb') as f:
-    rf=pk.load(f)
+    rf=joblib.load(f)
 
 st.title('Churn Predictor')
 st.header('It predicts wheteher the customer will churn or not based on the imput data')
