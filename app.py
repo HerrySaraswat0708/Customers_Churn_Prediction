@@ -47,8 +47,10 @@ else:
     csc_wise_rank=0
 
 state_value=state_df[state_df['state']==state]['value']
-x=np.array([[Intl_pln_val,voice_plan_val,total_minutes,total_charge,state_value,mail_wise_rank,csc_wise_rank]])
-y=rf.predict(x)
+
+x=[[Intl_pln_val,voice_plan_val,total_minutes,total_charge,state_value,mail_wise_rank,csc_wise_rank]]
+X=pd.DataFrame(data=x,columns=['Intl_pln_val','voice_plan_val','total_minutes','total_charge','state_value','mail_wise_rank','csc_wise_rank'])
+print(X)
 if st.button('Predict'):
     if y==0:
         st.write('Custumer will not churn')
