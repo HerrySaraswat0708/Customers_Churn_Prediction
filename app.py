@@ -50,7 +50,7 @@ state_value=state_df[state_df['state']==state]['value']
 
 x=[[Intl_pln_val,voice_plan_val,total_minutes,total_charge,state_value,mail_wise_rank,csc_wise_rank]]
 X=pd.DataFrame(data=x,columns=['Intl_pln_val','voice_plan_val','total_minutes','total_charge','state_value','mail_wise_rank','csc_wise_rank'])
-print(X)
+y=rf.predict(X)
 if st.button('Predict'):
     if y==0:
         st.write('Custumer will not churn')
