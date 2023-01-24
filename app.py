@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import pandas as pd
+import numpy as np
 
 train=pd.read_csv('train.csv')
 state_df=pd.read_csv('state_value.csv')
@@ -46,7 +47,7 @@ else:
     csc_wise_rank=0
 
 state_value=state_df[state_df['state']==state]['value']
-x=[Intl_pln_val,voice_plan_val,total_minutes,total_charge,state_value,mail_wise_rank,csc_wise_rank]
+x=np.array([[Intl_pln_val,voice_plan_val,total_minutes,total_charge,state_value,mail_wise_rank,csc_wise_rank]])
 y=rf.predict(x)
 if st.button('Predict'):
     if y==0:
